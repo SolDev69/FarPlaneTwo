@@ -217,7 +217,8 @@ public class Constants {
 
         //the horizontal size may be greater than 30 million in the presence of mods which extend the world border limit. it's unlikely that such mods will actually
         //work properly with fp2, but i guess now the option is there?
-        horizontalLimit = Math.max(horizontalLimit, world.getWorldBorder().getSize());
+        if(world.getWorldBorder.getSize() > 30000000)
+            horizontalLimit = Integer.MAX_VALUE; // Assume we are using a mod that expands the world all the way to the maximum 64bit integer
 
         return new IntAxisAlignedBB(-horizontalLimit, minY, -horizontalLimit, horizontalLimit, maxY, horizontalLimit);
     }
